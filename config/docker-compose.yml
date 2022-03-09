@@ -1,0 +1,16 @@
+version: "3"
+services:
+  next-app:
+    container_name: next-app
+    restart: "on-failure"
+    build:
+      dockerfile: config/Dockerfile
+      context: ../
+    ports:
+      - "3000:3000"
+    volumes:
+      - /opt/project/node_modules
+      - ../app:/opt/project
+    environment:
+      - MAIN_API_URL="${MAIN_API_URL}"
+    command: sh -c "${STARTUP_COMMAND}"
