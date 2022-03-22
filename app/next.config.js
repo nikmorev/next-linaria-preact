@@ -1,5 +1,5 @@
-const withLinaria = require('next-linaria');
+const setup = require('./next-config.setup')
 
-module.exports = withLinaria({
-  // ...nextConfig
-})
+const customNextConfig = {}
+
+module.exports = setup(customNextConfig)
